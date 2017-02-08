@@ -1,0 +1,33 @@
+{
+  "description": "annimon.com site checker",
+  "manifest_version": 2,
+  "name": "ANNChecker",
+	"author": "RblSb",
+  "version": "1.0.1",
+	
+  "options_ui": {
+    "page": "options.html"
+  },
+	
+  "permissions": [
+		"notifications",
+    "webRequest",
+		"storage",
+    "http://annimon.com/*",
+    "https://annimon.com/*"
+  ],
+	
+  "background": {
+    "scripts": ["background.js"]
+  },
+	
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/page-16.png",
+      "24": "icons/page-24.png",
+      "32": "icons/page-32.png",
+      "128": "icons/page-128.png"
+    },
+		"default_popup": "popup.html"
+  }
+}
