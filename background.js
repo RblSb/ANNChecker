@@ -99,7 +99,7 @@ var bgrun; //цикл
 start();
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendRepsonse) {
-	if (message.method == "click") checkDigest(true); //загружаем меню
+	if (message.method == "opened") checkDigest(true); //загружаем меню
 	if (message.method == "update") start(); //настройки обновлены
 });
 

@@ -1,4 +1,4 @@
-chrome.runtime.sendMessage({method: "click"}); //оповещение об открытии
+chrome.runtime.sendMessage({method: "opened"}); //оповещение об открытии
 
 function genLink(name, lname, n, n2, custom, custom2) {
 	var link = '<a href="https://annimon.com/';
@@ -25,13 +25,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 		bmenu.innerHTML = "Ошибка!";
 		main.innerHTML = "Требуется авторизация.";
 		return true;
+		
 	} else if (message.error == "none") {
 		bmenu.innerHTML = "Ошибка!";
 		main.innerHTML = "Ты все заблокировал, умник!";
-		return true;
-	} else if (message.data == undefined) {
-		bmenu.innerHTML = "Ошибка!";
-		main.innerHTML = "Не удалось получить данные.";
 		return true;
 	}
 	
