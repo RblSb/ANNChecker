@@ -61,8 +61,9 @@ function checkDigest(clicked) {
 			chrome.browserAction.setBadgeText({text: ""+num});
 			//шлем данные для отображения в меню
 			if (clicked === true) chrome.runtime.sendMessage({action: "click", data: unread});
-			else if (sets.push) { //push-уведомления
-				if (unread.mail != oldmail && unread.mail > 0) chrome.notifications.create({
+			
+			else if (sets.push && unread.mail != oldmail && unread.mail > 0) { //push-уведомления
+				var push = chrome.notifications.create("mail", {
 					type: 'basic',
 					iconUrl: 'icons/page-128.png',
 					title: 'ANNChecker',
@@ -98,9 +99,14 @@ var sets = { //дефолтные настройки
 var bgrun; //цикл
 start();
 
-chrome.runtime.onMessage.addListener(function (message, sender, sendRepsonse) {
+chrome.runtime.onMessage.addListener(function(message, sender, sendRepsonse) {
 	if (message.method == "opened") checkDigest(true); //загружаем меню
 	if (message.method == "update") start(); //настройки обновлены
+});
+
+chrome.notifications.onClicked.addListener(function(id) { //push
+	if (id == "mail") chrome.tabs.create({url: "https://annimon.com/mail/?act=new"});
+	chrome.notifications.clear(id);
 });
 
 

@@ -32,8 +32,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 		return true;
 	}
 	
-	bmenu.innerHTML = "Непрочитанное";
-	
 	var data = message.data;
 	result += genLink("Почта", "mail", data.mail);
 	result += genLink("Форум", "forum", data.forum);
@@ -44,8 +42,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	result += genLink("Вопросы и ответы", "qa", data.qa_questions, data.qa_answers, '/unread">', '/?act=last_answers&unread">');
 	result += genLink("Уголок писателя", "write", data.writers, data.writers_comments);
 	
-	main.innerHTML = result;
-	if (result = "") main.innerHTML = "Нет непрочитанного.";
+	if (result !== "") main.innerHTML = result;
+	else main.innerHTML = "Нет непрочитанного.";
 	
 	var links = document.getElementsByTagName("a");
 	for (var i = 0; i < links.length; i++) {
