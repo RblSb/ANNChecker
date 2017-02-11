@@ -4,31 +4,33 @@
   <style type="text/css">
   
   body {
+    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+    white-space: nowrap;
+    font-size: 14px;
     background: #fff;
     padding: 0px;
     margin: 0px;
   }
   
   .tagmenu {
-    font-size: 14px;
-    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
     background: #e0e6ff;
-    padding: 1px 5px 0px 5px;
+    padding: 1px 8px 0px 5px;
     color: white;
     background: url(images/tagback.png) #1279c1;
     min-height: 23px;
-    margin-bottom: 3px;
+  }
+  
+  .main {
+    padding: 2px 2px 4px 4px;
   }
   
   .punmenu {
-    background-color: #ffffff;
     border-bottom: 1px solid #e0e6ff;
-    padding: 2px;
-    margin: 0px 3px 3px 3px;
+    padding: 0px 3px 3px 0px;
   }
   .punmenu:last-child {
     border-bottom: 0px;
-    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
   .punmenu a:link {
     color: #2362c0;
@@ -48,7 +50,7 @@
 </head>
 
 <div class="tagmenu" id="tagmenu">Непрочитанное</div>
-<div id="main">Загрузка...</div>
+<div class="main" id="main">Загрузка...</div>
 
 <script src="popup.js"></script>
 

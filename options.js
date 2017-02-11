@@ -1,6 +1,6 @@
 function saveOptions() {
 	var save = {
-		updtime: Math.floor(document.getElementById("updtime").value),
+		updtime: parseInt(document.getElementById("updtime").value, 10),
 		push: document.getElementById("push").checked,
 		cbmain: [],
 		cbmiss: []

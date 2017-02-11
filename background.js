@@ -1,5 +1,4 @@
 function checkDigest(clicked) {
-	if (clicked === true) chrome.browserAction.setBadgeText({text: "..."});
 	var types = ["mail","forum","diary","albums","articles","code","qa","writers"];
 	var url = "https://annimon.com/json/web/counters?mode=";
 	var mode = "";
@@ -36,7 +35,7 @@ function checkDigest(clicked) {
 			
 			if (json.error) { //не авторизован
 				if (clicked === true) {
-					chrome.tabs.create({ url: "https://annimon.com/in.php" });
+					chrome.tabs.create({ url: "https://annimon.com/in.php", active: false });
 					chrome.runtime.sendMessage({method: "click", error: "auth"});
 				}
 				chrome.browserAction.setBadgeText({text: "?"});
@@ -60,7 +59,7 @@ function checkDigest(clicked) {
 			if (num === 0) num = "";
 			chrome.browserAction.setBadgeText({text: ""+num});
 			//шлем данные для отображения в меню
-			if (clicked === true) chrome.runtime.sendMessage({action: "click", data: unread});
+			if (clicked === true) chrome.runtime.sendMessage({method: "click", data: unread});
 			
 			else if (sets.push && unread.mail != oldmail && unread.mail > 0) { //push-уведомления
 				var push = chrome.notifications.create("mail", {

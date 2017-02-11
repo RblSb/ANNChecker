@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "ANNChecker",
 	"author": "RblSb",
-  "version": "1.0.3",
+  "version": "1.0.4",
 	
   "options_ui": {
     "page": "options.html"
@@ -26,6 +26,7 @@
       "16": "icons/page-16.png",
       "24": "icons/page-24.png",
       "32": "icons/page-32.png",
+      "48": "icons/page-48.png",
       "128": "icons/page-128.png"
     },
 		"default_popup": "popup.html"
