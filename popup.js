@@ -36,7 +36,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	result += genLink("Дневники", "dnevniki", data.diaries, data.diaries_comments);
 	result += genLink("Альбомы", "albums", data.albums, data.albums_comments);
 	result += genLink("Статьи", "ablogs", data.articles, data.articles_comments);
-	result += genLink("Коды", "code", data.code, data.code_comments);
+	result += genLink("Коды", "code", data.code, data.code_comments, '/?act=unread', '/?act=unread');
 	result += genLink("Вопросы и ответы", "qa", data.qa_questions, data.qa_answers, '/unread', '/?act=last_answers&unread');
 	result += genLink("Уголок писателя", "write", data.writers, data.writers_comments);
 	
